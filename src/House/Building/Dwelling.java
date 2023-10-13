@@ -140,7 +140,7 @@ public class Dwelling {
     /**
      * Создайте метод getBestSpace() получения самой большой по площади квартиры дома.
      */
-    public Flat getBestSpace() {
+   /* public Flat getBestSpace() {
         Flat bestFlat = floors[0].getBestSpace();
         for (int i = 0; i < floors.length; i++) {
             Flat bigFlat = floors[i].getBestSpace();
@@ -149,7 +149,7 @@ public class Dwelling {
             }
         }
         return bestFlat;
-    }
+    }*/
 
     /**
      * Создайте метод получения отсортированного по убыванию площадей массива квартир.

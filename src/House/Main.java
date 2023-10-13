@@ -8,11 +8,11 @@ import House.Building.Flat;
 public class Main {
     public static void main(String[] args) {
 
-        Flat flat1 = new Flat(1, 50);
-        Flat flat2 = new Flat(2, 100);
-        Flat flat3 = new Flat(3, 150);
-        Flat flat4 = new Flat(4, 200);
-        Flat flat5 = new Flat(5, 250);
+        Flat flat1 = new Flat(1, 300);
+        Flat flat2 = new Flat(2, 123);
+        Flat flat3 = new Flat(3, 123);
+        Flat flat4 = new Flat(4, 123);
+        Flat flat5 = new Flat(5, 123);
         Flat flat6 = new Flat(6, 50);
         Flat flat7 = new Flat(7, 100);
         Flat flat8 = new Flat(8, 150);
@@ -28,6 +28,7 @@ public class Main {
 
 
 /*
+
 
        System.out.println(flat7.getRooms());
         System.out.println(dwellingFloor2.getTotalFlats());
@@ -57,7 +58,10 @@ public class Main {
         System.out.println(dwellingFloor1.getTotalFlats());
        /* System.out.println(dwellingFloor1.getFlat(0).getRooms() + "\t" + dwelling1.getFlat(0).getSquare());
         System.out.println(dwellingFloor1.getFlat(4).getRooms());*/
+        System.out.println("4len");
         dwellingFloor1.getFlats();
+        System.out.println("JOPA");
+        System.out.println(dwellingFloor1.getBestSpace());
 
     }
 }
