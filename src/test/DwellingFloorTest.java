@@ -6,21 +6,28 @@ import House.Building.Flat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DwellingFloorTest {
 
     @Test
     void deleteFlatTest(){
-        int lenght = 5;
-        int razn=lenght-1;
-        Assertions.assertEquals(4,razn);
+        int index = 3;
+        int razn = index -1;
+        DwellingFloor floor = new DwellingFloor(index);
+        floor.deleteFlat(1);
+        Assertions.assertEquals(razn,floor.getTotalFlats());
     }
     @Test
     void addFlatTest(){
-        int lenght = 5;
-        int add=lenght+1;
-        Assertions.assertEquals(6,add);
+        int index = 3;
+        int sum = index +1;
+        DwellingFloor floor = new DwellingFloor(index);
+        floor.addFlat(index, new Flat(3,80));
+        Assertions.assertEquals(sum, floor.getTotalFlats());
     }
     @Test
     void getFlatssquareTest(){
@@ -53,5 +60,39 @@ public class DwellingFloorTest {
         Assertions.assertEquals(19, sum);
     }
 
+    @Test
+    void getFlatsTets(){
+        Flat flat1= new Flat(9,200);
+        Flat flat2 = new Flat(11,250);
+        Flat flat3= new Flat(10,199);
+        Flat[] flats = {flat1,flat2,flat3};
+        DwellingFloor floor = new DwellingFloor(flats);
+        Assertions.assertEquals(flats,floor.getFlats());
+
+    }
+
+    @Test
+    void getFlatTets(){
+        DwellingFloor floor = new DwellingFloor(3);
+        System.out.println(floor.getFlat(1));
+    }
+
+    @Test
+    void setFlatTets(){
+        DwellingFloor floor = new DwellingFloor(3);
+        Flat newFlat = new Flat(3,50);
+        floor.setFlat(1, newFlat);
+        Assertions.assertEquals(newFlat, floor.getFlat(1));
+    }
+
+    @Test
+    void getBestSquareTets(){
+        Flat flat1= new Flat(9,200);
+        Flat flat2 = new Flat(11,250);
+        Flat flat3= new Flat(10,199);
+        Flat[] flats = {flat1,flat2,flat3};
+        DwellingFloor floors=new DwellingFloor(flats);
+        Assertions.assertEquals(flat2,floors.getBestSquare());
+    }
 
 }

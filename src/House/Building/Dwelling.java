@@ -90,8 +90,6 @@ public class Dwelling {
     /**
      * Создайте метод получения объекта квартиры по ее номеру на этаже.
      */
-    // пояснялка: добавили переменную "счётчик"=0, который считает нуимирацию квартир в здании, перебираем все квартиры на всех этажах,
-    // если "счетчик"==numberFlat, то возвращаем квартиру.
     public Flat getFlat(int index) {
         int counter = 0;
         for (int i = 0; i < floors.length; i++) {
@@ -140,36 +138,40 @@ public class Dwelling {
     /**
      * Создайте метод getBestSpace() получения самой большой по площади квартиры дома.
      */
-   /* public Flat getBestSpace() {
-        Flat bestFlat = floors[0].getBestSpace();
+    public Flat getBestSpace() {
+        Flat bestFlat = floors[0].getBestSquare();
         for (int i = 0; i < floors.length; i++) {
-            Flat bigFlat = floors[i].getBestSpace();
+            Flat bigFlat = floors[i].getBestSquare();
             if (bigFlat.getSquare() > bestFlat.getSquare()) {
                 bestFlat = bigFlat;
             }
         }
         return bestFlat;
-    }*/
+    }
 
     /**
      * Создайте метод получения отсортированного по убыванию площадей массива квартир.
      */
-    /*public Flat[] getSortFlatsBySquare(int order){
-        Flat[] mass = new Flat[];
-        for (DwellingFloor floor: floors){
-            for (int i=0;i<floor.getTotalFlats();i++){
-                
+    public Flat[] sortirovshik() {
+        Flat[] mass = new Flat[getFlatsQuantity()];
+        Flat[] massNotSorted = getAllFlats();
+        {
+            boolean isSorted = false;
+            while (!isSorted) {
+                isSorted = true;
+                for (int in = 1; in < mass.length; in++) {
+                    if (massNotSorted[in].getSquare() > massNotSorted[in - 1].getSquare()) {
+                        Flat temp = massNotSorted[in];
+                        massNotSorted[in] = massNotSorted[in - 1];
+                        massNotSorted[in - 1] = temp;
+                        isSorted = false;
+                    }
+                }
             }
+            return massNotSorted;
         }
-
-        if (order ==1){
-
     }
-    else if(order==-1){
 
-        }
-
-    }*/
     private Flat[] getAllFlats() {
         Flat[] mass = new Flat[getFlatsQuantity()];
         int counter = 0;
@@ -180,5 +182,4 @@ public class Dwelling {
         }
         return mass;
     }
-
 }

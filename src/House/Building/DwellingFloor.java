@@ -53,7 +53,7 @@ public class DwellingFloor {
         return flats;
     }
     /**
-     * Создайте метод  получения объекта квартиры по ее номеру на этаже
+     * Создайте метод получения объекта квартиры по ее номеру на этаже
      */
     public Flat getFlat(int index) {
         return flats[index];
@@ -67,8 +67,7 @@ public class DwellingFloor {
     /**
      * Создайте метод удаления квартиры по её номеру на этаже
      */
-// пояснялка: 1ый цикл копирует всё до numberFlat,
-// 2ой- копируем всё после numberFlat Итог: мы не скопировали numberFlat
+
     public void deleteFlat(int index) {
         Flat[] newFlats = new Flat[flats.length - 1];
         for (int i = 0; i < index; i++) {
@@ -82,8 +81,7 @@ public class DwellingFloor {
     /**
      * Создайте метод добавления новой квартиры на этаже по будущему номеру квартиры
      */
-//поснялка:создали массив на 1 больше изнчального, 1ый цикл- скопировали всё до numberFlat, вставили Flat в numberFlat,
-// 2ой цикл- скопировали всё после numberFlat, присвоили новый массив
+
     public void addFlat(int index, Flat newFlat) {
         Flat[] flat = new Flat[flats.length + 1];
         for (int i = 0; i < index; i++) {
@@ -98,7 +96,7 @@ public class DwellingFloor {
     /**
      * Создайте метод получения самой большой по площади квартиры этажа
      */
-    public Flat getBestSpace() {
+    public Flat getBestSquare() {
         int bestSpace = 0;
         Flat flatBestSpace = null;
         for (int i = 0; i < flats.length; i++) {

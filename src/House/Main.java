@@ -8,14 +8,14 @@ import House.Building.Flat;
 public class Main {
     public static void main(String[] args) {
 
-        Flat flat1 = new Flat(1, 300);
-        Flat flat2 = new Flat(2, 123);
-        Flat flat3 = new Flat(3, 123);
-        Flat flat4 = new Flat(4, 123);
-        Flat flat5 = new Flat(5, 123);
+        Flat flat1 = new Flat(1, 500);
+        Flat flat2 = new Flat(2, 350);
+        Flat flat3 = new Flat(3, 400);
+        Flat flat4 = new Flat(4, 113);
+        Flat flat5 = new Flat(5, 600);
         Flat flat6 = new Flat(6, 50);
         Flat flat7 = new Flat(7, 100);
-        Flat flat8 = new Flat(8, 150);
+        Flat flat8 = new Flat(8, 1000);
         Flat flat9 = new Flat(9, 200);
         Flat[] flats = {flat1, flat2, flat3, flat4, flat5};
         Flat[] flats2 = {flat6, flat7, flat8, flat9};
@@ -26,7 +26,16 @@ public class Main {
         DwellingFloor[] floors = {dwellingFloor1, dwellingFloor2};
         Dwelling dwelling1 = new Dwelling(floors);
 
+        //System.out.println(dwellingFloor1.getBestSquare());
 
+        /*for(int i =0;i<5;i++){
+            System.out.println(dwellingFloor1.getFlats()[i]);
+        }*/
+      //  System.out.println(dwelling1.getBestSpace());
+
+        for (int i=0;i<9;i++){
+            System.out.println(dwelling1.sortirovshik()[i]);
+        }
 /*
 
 
@@ -43,7 +52,7 @@ public class Main {
         System.out.println(dwelling1.getFlatsQuantity());
 
 */
-        System.out.println(flat1.getSquare()+"\t" + flat1.getRooms()); //квартира№1 50/1
+        /*System.out.println(flat1.getSquare()+"\t" + flat1.getRooms()); //квартира№1 50/1
         System.out.println(dwellingFloor1.getTotalFlats()); //кол-во квартир на 1 этаже
         System.out.println(dwellingFloor2.getTotalFlats()); //кол-во квартир на 2 этаже
         System.out.println(dwellingFloor1.getFlat(4).getRooms()+"\t"+dwellingFloor1.getFlat(4).getSquare());
@@ -54,14 +63,12 @@ public class Main {
         System.out.println(dwelling1.getFlat(0).getRooms() + "\t" + dwelling1.getFlat(0).getSquare());
         System.out.println(dwellingFloor1.getTotalFlats());
         System.out.println(dwellingFloor1.getFlat(4).getRooms());
-        dwellingFloor1.deleteFlat(0);
         System.out.println(dwellingFloor1.getTotalFlats());
-       /* System.out.println(dwellingFloor1.getFlat(0).getRooms() + "\t" + dwelling1.getFlat(0).getSquare());
-        System.out.println(dwellingFloor1.getFlat(4).getRooms());*/
-        System.out.println("4len");
-        dwellingFloor1.getFlats();
-        System.out.println("JOPA");
-        System.out.println(dwellingFloor1.getBestSpace());
+       *//* System.out.println(dwellingFloor1.getFlat(0).getRooms() + "\t" + dwelling1.getFlat(0).getSquare());
+        System.out.println(dwellingFloor1.getFlat(4).getRooms());*//*
+        dwellingFloor1.getFlats();;
+        System.out.println(dwellingFloor1.getBestSquare().toString());*/
+       // System.out.println(dwellingFloor1.getFlat(1).toString());
 
     }
 }

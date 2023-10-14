@@ -30,6 +30,11 @@ package House.Building;
         public void setSquare(int square) {
           this.square=square;}
 
+
+        public String toString() {
+            return "|количесвто комнат: " + rooms + ", площадь квартиры: " + square + "кв.м|";
+        }
+
     }
 
 
