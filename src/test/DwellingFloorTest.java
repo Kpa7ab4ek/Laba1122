@@ -55,7 +55,7 @@ public class DwellingFloorTest {
         Flat[] flats = {flat1, flat2};
         int sum=0;
         for(int i=0;i<flats.length;i++){
-            sum+=flats[i].getRooms();
+            sum+=flats[i].getQuantity();
         }
         Assertions.assertEquals(19, sum);
     }
