@@ -2,6 +2,7 @@ package House.Building;
 
 
 public class DwellingFloor {
+
     private Flat[] flats;
 
     public DwellingFloor(int numbersOfFlats) {
@@ -47,7 +48,6 @@ public class DwellingFloor {
         this.flats[index] = newFlat;
     }
 
-
     public void addFlat(int index, Flat newFlat) {
         Flat[] flat = new Flat[flats.length + 1];
         for (int i = 0; i < index; i++) {
@@ -59,7 +59,6 @@ public class DwellingFloor {
         }
         flats = flat;
     }
-
 
     public void deleteFlat(int index) {
         Flat[] newFlats = new Flat[flats.length - 1];
@@ -83,7 +82,6 @@ public class DwellingFloor {
         }
         return flatBestSpace;
     }
-
 
     public String toString() {
         StringBuilder s = new StringBuilder();

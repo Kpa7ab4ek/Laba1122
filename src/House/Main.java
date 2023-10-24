@@ -20,21 +20,28 @@ public class Main {
         Flat flat10 = new Flat(111, 111);
         Flat[] flats = {flat1, flat2, flat3, flat4, flat5};
         Flat[] flats2 = {flat6, flat7, flat8, flat9};
+        Flat[] flats3 = {flat10};
 
         DwellingFloor dwellingFloor1 = new DwellingFloor(flats);
         DwellingFloor dwellingFloor2 = new DwellingFloor(flats2);
+        DwellingFloor dwellingFloor3 = new DwellingFloor(flats3);
 
         DwellingFloor[] floors = {dwellingFloor1, dwellingFloor2};
         Dwelling dwelling1 = new Dwelling(floors);
 
 
-        for (int i = 0; i < 9; i++) {
+       /* for (int i = 0; i < 9; i++) {
             System.out.println(dwelling1.getSortFlatsBySquare(-1)[i]);
         }
         System.out.println("JOPA");
         for (int i = 0; i < 9; i++) {
             System.out.println(dwelling1.getSortFlatsBySquare(1)[i]);
-        }
+        }*/
+
+      /*  dwelling1.setFloor(0, dwellingFloor3);
+        for (int i =0; i<2;i++){
+            System.out.println(dwelling1.getFloors()[i]);
+        }*/
         //dwelling1.setFlat(8,flat10);
       /*  dwelling1.addFlat(9, flat10);
         System.out.println("");

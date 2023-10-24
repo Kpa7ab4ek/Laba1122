@@ -4,6 +4,8 @@ import com.sun.deploy.security.SelectableSecurityManager;
 
 public class Dwelling {
 
+    private DwellingFloor[] floors;
+
     public Dwelling(int numbersOfFloors, int[] numbersOfFlats) {
         this.floors = new DwellingFloor[numbersOfFloors];
 
@@ -12,14 +14,11 @@ public class Dwelling {
         }
     }
 
-    private DwellingFloor[] floors;
-
     public Dwelling(DwellingFloor[] floors) {
         this.floors = floors;
     }
 
     public int getFloorsQuantity() {
-
         return floors.length;
     }
 
