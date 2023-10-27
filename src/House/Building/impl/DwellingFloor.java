@@ -1,18 +1,23 @@
-package House.Building;
+package House.Building.impl;
 
 
-public class DwellingFloor {
+import House.Building.Floor;
+import House.Building.Space;
+import lombok.Data;
 
-    private Flat[] flats;
+@Data
+public class DwellingFloor implements Floor {
+
+    private Space[] flats;
 
     public DwellingFloor(int numbersOfFlats) {
-        this.flats = new Flat[numbersOfFlats];
+        this.flats = new Space[numbersOfFlats];
         for (int i = 0; i < flats.length; i++) {
             this.flats[i] = new Flat();
         }
     }
 
-    public DwellingFloor(Flat[] flats) {
+    public DwellingFloor(Space[] flats) {
         this.flats = flats;
     }
 
@@ -36,20 +41,20 @@ public class DwellingFloor {
         return sum;
     }
 
-    public Flat[] getFlats() {
+    public Space[] getFlats() {
         return flats;
     }
 
-    public Flat getFlat(int index) {
+    public Space getFlat(int index) {
         return flats[index];
     }
 
-    public void setFlat(int index, Flat newFlat) {
+    public void setFlat(int index, Space newFlat) {
         this.flats[index] = newFlat;
     }
 
-    public void addFlat(int index, Flat newFlat) {
-        Flat[] flat = new Flat[flats.length + 1];
+    public void addFlat(int index, Space newFlat) {
+        Space[] flat = new Space[flats.length + 1];
         for (int i = 0; i < index; i++) {
             flat[i] = flats[i];
         }
@@ -61,7 +66,7 @@ public class DwellingFloor {
     }
 
     public void deleteFlat(int index) {
-        Flat[] newFlats = new Flat[flats.length - 1];
+        Space[] newFlats = new Space[flats.length - 1];
         for (int i = 0; i < index; i++) {
             newFlats[i] = flats[i];
         }
@@ -71,9 +76,9 @@ public class DwellingFloor {
         flats = newFlats;
     }
 
-    public Flat getBestSquare() {
+    public Space getBestSquare() {
         int bestSpace = 0;
-        Flat flatBestSpace = null;
+        Space flatBestSpace = null;
         for (int i = 0; i < flats.length; i++) {
             if (flats[i].getSquare() > bestSpace) {
                 bestSpace = flats[i].getSquare();
@@ -83,14 +88,4 @@ public class DwellingFloor {
         return flatBestSpace;
     }
 
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        s.append("кол-во квартир на этаже: ").append(getTotalFlats()).append(", ");
-        for (int i = 0; i < flats.length; i++) {
-            if (i > 0) s.append(", ");
-            s.append(flats[i].toString());
-        }
-        s.append(")");
-        return s.toString();
-    }
 }

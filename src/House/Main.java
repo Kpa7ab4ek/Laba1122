@@ -1,9 +1,7 @@
 
 package House;
 
-import House.Building.Dwelling;
-import House.Building.DwellingFloor;
-import House.Building.Flat;
+import House.Building.impl.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +19,6 @@ public class Main {
         Flat[] flats = {flat1, flat2, flat3, flat4, flat5};
         Flat[] flats2 = {flat6, flat7, flat8, flat9};
         Flat[] flats3 = {flat10};
-
         DwellingFloor dwellingFloor1 = new DwellingFloor(flats);
         DwellingFloor dwellingFloor2 = new DwellingFloor(flats2);
         DwellingFloor dwellingFloor3 = new DwellingFloor(flats3);
@@ -30,28 +27,26 @@ public class Main {
         Dwelling dwelling1 = new Dwelling(floors);
 
 
-       /* for (int i = 0; i < 9; i++) {
-            System.out.println(dwelling1.getSortFlatsBySquare(-1)[i]);
+        Office office1 = new Office();
+        Office office2 = new Office(3, 100);
+        Office office3 = new Office(500);
+        Office[] offices1 = {office1, office2, office3};
+
+        OfficeFloor officeFloor = new OfficeFloor(offices1);
+        OfficeFloor[] officeFloors = {officeFloor};
+
+        OfficeDwelling officeDwelling = new OfficeDwelling(officeFloors);
+
+        Office office4 = new Office(40,400);
+
+        for (int i =0;i<officeFloor.getTotalFlats();i++) {
+            System.out.println(officeFloor.getFlats()[i]);
         }
-        System.out.println("JOPA");
-        for (int i = 0; i < 9; i++) {
-            System.out.println(dwelling1.getSortFlatsBySquare(1)[i]);
-        }*/
 
-      /*  dwelling1.setFloor(0, dwellingFloor3);
-        for (int i =0; i<2;i++){
-            System.out.println(dwelling1.getFloors()[i]);
-        }*/
-        //dwelling1.setFlat(8,flat10);
-      /*  dwelling1.addFlat(9, flat10);
-        System.out.println("");
-        for (int i = 0; i < 2; i++) {
-            System.out.println(dwelling1.getFloors()[i]);
+        for (int i =0;i<1;i++) {
+            System.out.println(officeDwelling.getFloors()[i]);
         }
-        System.out.println("");
-        System.out.println(dwelling1.getFlat(0));*/
 
-
-
+        System.out.println(officeFloor.getTotalFlats());
     }
 }

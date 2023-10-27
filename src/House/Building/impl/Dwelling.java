@@ -1,20 +1,22 @@
-package House.Building;
+package House.Building.impl;
 
-import com.sun.deploy.security.SelectableSecurityManager;
+import House.Building.*;
+import lombok.Data;
 
-public class Dwelling {
+@Data
+public class Dwelling implements Building {
 
-    private DwellingFloor[] floors;
+    private Floor[] floors;
 
     public Dwelling(int numbersOfFloors, int[] numbersOfFlats) {
-        this.floors = new DwellingFloor[numbersOfFloors];
+        this.floors = new Floor[numbersOfFloors];
 
         for (int i = 0; i < numbersOfFloors; i++) {
             this.floors[i] = new DwellingFloor(numbersOfFlats[i]);
         }
     }
 
-    public Dwelling(DwellingFloor[] floors) {
+    public Dwelling(Floor[] floors) {
         this.floors = floors;
     }
 
@@ -46,22 +48,22 @@ public class Dwelling {
         return sum;
     }
 
-    public DwellingFloor[] getFloors() {
+    public Floor[] getFloors() {
         return floors;
     }
 
-    public DwellingFloor getFloor(int index) {
+    public Floor getFloor(int index) {
         return floors[index];
     }
 
-    public void setFloor(int index, DwellingFloor newDwellingFloor) {
+    public void setFloor(int index, Floor newDwellingFloor) {
         floors[index] = newDwellingFloor;
     }
 
-    public Flat getFlat(int index) {
+    public Space getFlat(int index) {
         int counter = 0;
         for (int i = 0; i < floors.length; i++) {
-            DwellingFloor floor = floors[i]; //
+            Floor floor = floors[i]; //
             for (int k = 0; k < floor.getTotalFlats(); k++) {
                 if (counter == index) {
                     return floor.getFlat(k);
@@ -72,10 +74,10 @@ public class Dwelling {
         return null;
     }
 
-    public void setFlat(int index, Flat newFlat) {
+    public void setFlat(int index, Space newFlat) {
         int sum = 0;
         for (int i = 0; i < floors.length; i++) {
-            DwellingFloor floor = floors[i];
+            Floor floor = floors[i];
             int flatsAmount = floor.getTotalFlats();
             sum += floor.getTotalFlats();
             if (sum > index) {
@@ -85,7 +87,7 @@ public class Dwelling {
         }
     }
 
-    public void addFlat(int index, Flat newFlat) {
+    public void addFlat(int index, Space newFlat) {
         for (int i = 0; i < floors.length; i++) {
             if (index > floors[i].getTotalFlats()) {
                 index -= floors[i].getTotalFlats();
@@ -97,7 +99,6 @@ public class Dwelling {
     }
 
     public void deleteFlat(int index) {
-
         for (int i = 0; i < floors.length; i++) {
             if (index > floors[i].getTotalFlats()) {
                 index -= floors[i].getTotalFlats();
@@ -107,10 +108,10 @@ public class Dwelling {
         }
     }
 
-    public Flat getBestFlatBySquare() {
-        Flat bestFlat = floors[0].getBestSquare();
+    public Space getBestSpaceBySquare() {
+        Space bestFlat = floors[0].getBestSquare();
         for (int i = 0; i < floors.length; i++) {
-            Flat bigFlat = floors[i].getBestSquare();
+            Space bigFlat = floors[i].getBestSquare();
             if (bigFlat.getSquare() > bestFlat.getSquare()) {
                 bestFlat = bigFlat;
             }
@@ -118,9 +119,9 @@ public class Dwelling {
         return bestFlat;
     }
 
-    public Flat[] getSortFlatsBySquare(int order) {
-        Flat[] mass = new Flat[getTotalFlats()];
-        Flat[] massNotSorted = getAllFlats();
+    public Space[] getSortSpacesBySquare(int order) {
+        Space[] mass = new Flat[getTotalFlats()];
+        Space[] massNotSorted = getAllFlats();
         {
             boolean isSorted = false;
             while (!isSorted) {
@@ -128,7 +129,7 @@ public class Dwelling {
                 if (order == 1) {
                     for (int in = 1; in < mass.length; in++) {
                         if (massNotSorted[in].getSquare() > massNotSorted[in - 1].getSquare()) {
-                            Flat temp = massNotSorted[in];
+                            Space temp = massNotSorted[in];
                             massNotSorted[in] = massNotSorted[in - 1];
                             massNotSorted[in - 1] = temp;
                             isSorted = false;
@@ -138,7 +139,7 @@ public class Dwelling {
                 if (order==-1){
                     for (int in = mass.length-1; in >= 1; in--) {
                         if (massNotSorted[in].getSquare() < massNotSorted[in - 1].getSquare()) {
-                            Flat temp = massNotSorted[in];
+                            Space temp = massNotSorted[in];
                             massNotSorted[in] = massNotSorted[in - 1];
                             massNotSorted[in - 1] = temp;
                             isSorted = false;
@@ -150,8 +151,8 @@ public class Dwelling {
         }
     }
 
-    private Flat[] getAllFlats() {
-        Flat[] mass = new Flat[getTotalFlats()];
+    private Space[] getAllFlats() {
+        Space[] mass = new Flat[getTotalFlats()];
         int counter = 0;
         for (int i = 0; i < floors.length; i++) {
             for (int k = 0; k < floors[i].getFlats().length; k++) {

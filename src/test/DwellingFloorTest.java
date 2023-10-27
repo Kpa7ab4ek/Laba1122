@@ -1,13 +1,10 @@
 package test;
 
 
-import House.Building.DwellingFloor;
-import House.Building.Flat;
+import House.Building.impl.DwellingFloor;
+import House.Building.impl.Flat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
